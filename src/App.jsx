@@ -1,43 +1,28 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import quotes from './quotes.json'
+import QuoteBox from './commponents/QuoteBox'
+
+const colors = [
+  "#845EC2",
+  "#D65DB1",
+  "#FF6F91",
+  "#FF9671",
+  "#FFC75F",
+  "#F9F871"
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const randomColorIndex = Math.floor(Math.random() * colors.length);
+  const color = colors[randomColorIndex];
+  // @ts-ignore
+  document.body.style = `background: ${color}`;
+  
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <QuoteBox textcolor={color}/>
     </div>
   )
 }
