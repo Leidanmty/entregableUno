@@ -23,10 +23,14 @@ function App() {
   const random = Math.floor(Math.random() * quotes.length);
   const [index, setIndex] = useState(random);
   
+  const changePhrase = () => {
+    const random = Math.floor(Math.random() * quotes.length);
+    setIndex(random);
+  };
 
   return (
     <div className="App">
-      <QuoteBox textcolor={color} phrase={quotes[index].quote} author={quotes[index].author}/>
+      <QuoteBox textcolor={color} phrase={quotes[index].quote} author={quotes[index].author} change={changePhrase}/>
     </div>
   )
 }
