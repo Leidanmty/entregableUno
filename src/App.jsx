@@ -5,12 +5,13 @@ import quotes from './quotes.json'
 import QuoteBox from './commponents/QuoteBox'
 
 const colors = [
-  "#845EC2",
-  "#D65DB1",
-  "#FF6F91",
-  "#FF9671",
-  "#FFC75F",
-  "#F9F871"
+  "#ffc4f3",
+  "#087ec4",
+  "#26ffbd",
+  "#9e5945",
+  "#ffe955",
+  "#ba1300",
+  "#8e73ff"
 ];
 
 function App() {
@@ -18,11 +19,14 @@ function App() {
   const color = colors[randomColorIndex];
   // @ts-ignore
   document.body.style = `background: ${color}`;
+
+  const random = Math.floor(Math.random() * quotes.length);
+  const [index, setIndex] = useState(random);
   
 
   return (
     <div className="App">
-      <QuoteBox textcolor={color}/>
+      <QuoteBox textcolor={color} phrase={quotes[index].quote} author={quotes[index].author}/>
     </div>
   )
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const QuoteBox = ({textcolor}) => {
+const QuoteBox = ({textcolor, phrase, author}) => {
     return (
         <div className='quotes' style={{ color: textcolor }}>
-            <h1>"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero nostrum similique aspernatur, repellendus iusto accusamus?"</h1>
+            <h1>"{phrase}"</h1>
             <br />
-            <p>-Nombre Autor</p>
+            <p>-{author}</p>
         </div>
     );
 };
